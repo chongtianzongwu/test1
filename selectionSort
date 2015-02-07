@@ -1,0 +1,15 @@
+void selectionSort(int arr[], int size){
+	for(int i = 0; i < size -1; ++i){
+		int smallest = i;
+		// Find the index of the smallest element
+		for(int j = i + 1; j < size; ++j){
+			if(arr[j] < arr[smallest]){
+				smallest = j;
+			}
+		}
+		// Swap the smallest with the current item
+		temp = arr[i];{
+		arr[i] = arr[smallest];
+		arr[smallest] = temp;
+	}
+}
