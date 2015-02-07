@@ -1,0 +1,30 @@
+// Shell sort
+// PRE: 
+// PARAM: arr - array to be sorted
+//        n - size of arr
+// POST: arr is sorted in ascending order
+//       number of iterations of while loop is returned
+template <class T>
+int shellsort(T arr[], int n){
+	int count = 0;
+	// Gap starts at n/2 and halves each iteration
+	// Note - not optimal
+	for (int gap = n/2; gap > 0; gap = gap/2){
+
+		// Insertion sub-arrays whose elements are
+		// 0 ... gap ... n
+		for (int i = gap; i < n ; i++){
+			T temp = arr[i];
+			int pos = i;
+
+			while (pos >= gap && arr[pos - gap] > temp){
+				count++;
+				arr[pos] = arr[pos-gap];
+				pos = pos - gap;
+			}
+
+			arr[pos] = temp;
+		}
+	}
+	return count;
+}
